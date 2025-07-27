@@ -1,0 +1,24 @@
+<div class="insights-list-component">
+    <!-- <div class="header">
+        <img src="assets/Images/list2.png" class="img-div"/>
+    </div> -->
+    <div class="p-3">
+        <div class="d-flex" style="justify-content: space-between;">
+            <div class="title">Insights</div>
+        </div>
+        <div class="card-container mt-3" *ngFor="let data of insightsList; let i = index" >
+            <div class="card mt-1">                   
+                <div class="card-header d-flex">
+                    <div class="storename">{{data.storeName}}</div>
+                    <div class="date ms-3">({{ data.transactionDate }})</div>
+                </div>
+                <div class="card-body">                    
+                    <div class="btn-container d-flex">
+                        
+                        <pre>{{data.gemini_insights}}</pre>
+                    </div> 
+                </div>            
+            </div> 
+        </div>
+    </div>    
+</div>

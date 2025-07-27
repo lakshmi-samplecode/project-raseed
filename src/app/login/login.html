@@ -1,0 +1,36 @@
+<div class="login-component">
+  <div class="login-form">
+    <!-- <div class="img-container">
+        <img src="assets/Images/receipt.png" style="width: 50px;align-self: center;"/>
+    </div> -->
+    <div class="img-container">
+      <img src="assets/Images/gc.png" style="width: 75px;"/>
+      <img src="assets/Images/hack2skill.jpg" style="width: 100px;"/>
+    </div>
+    <div class="title text-center">
+      <div class="raseed-google-style">
+        <span>R</span><span>a</span><span>s</span><span>e</span><span>e</span><span>d</span>
+      </div>
+    </div>
+    <div class="field-container">
+      <div class="form-field">
+        <label>Username</label>
+        <input class="mt-2" type="text" [(ngModel)]="username" />
+      </div>
+      <div class="form-field">
+        <label>Password</label>
+        <input class="mt-2" type="password" [(ngModel)]="password" />
+      </div>
+      <div class="mt-2 google-dots-loader" *ngIf="isLoading">
+        <div class="dot blue"></div>
+        <div class="dot red"></div>
+        <div class="dot yellow"></div>
+        <div class="dot green"></div>
+      </div>
+      <div class="form-field mt-2">
+        <button (click)="login()">Log In</button>
+      </div>
+      
+    </div>
+  </div>
+</div>

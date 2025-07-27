@@ -1,0 +1,114 @@
+<div class="home-component p-3 container-fluid">
+  <!-- <div class="voice-input-container">
+    <button (click)="startVoiceInput()" [disabled]="isRecording">
+      🎙️ Start Voice Input
+    </button>
+    <button (click)="stopVoiceInput()" [disabled]="!isRecording">
+      ⏹️ Stop
+    </button>
+  </div> -->
+  <div class="img-container">
+    <img src="assets/Images/gc.png" style="width: 75px;"/>
+    <img src="assets/Images/hack2skill.jpg" style="width: 100px;"/>
+  </div>
+  <!-- <div class="title text-center">Raseed</div> -->
+  <div class="title text-center">
+    <div class="raseed-google-style">
+    <span>R</span><span>a</span><span>s</span><span>e</span><span>e</span><span>d</span>
+  </div>
+
+  </div>
+  <div class="sub-title text-center mt-2">
+    From chaotic receipts to clear insights, instantly. Project Raseed uses agentic AI to automatically capture and analyze every expense, giving you total financial control
+  </div>
+  
+  <div class="p-4 pt-3">
+    <div class="custom-upload" (click)="fileInput.click()">
+      <div class="col-2 text-center">
+        <mat-icon class="bi bi-camera" style="color:#406FC9">camera_alt</mat-icon>
+      </div>
+      <div class="col-10">
+        <div class="title ms-2">Scan Receipt</div>
+        <div class="subtitle ms-2">Capture and analyze the receipt</div>
+        <input type="file" #fileInput (change)="onFileSelected($event)" hidden />
+      </div>      
+    </div>  
+    <div class="ask-container mt-3">
+      <div class="d-flex askcontent">
+        <div class="col-2 ms-2 text-center" style="align-content: center;"><mat-icon> chat</mat-icon>
+       </div>
+        <div class="col-10 ms-2"> 
+          <div class="title">Ask Raseed</div>
+          <!-- <div class="subtitle">Do I have enough Milk?</div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #successDialog let-dialogRef="dialogRef">
+    <mat-dialog-content>
+      <div class="success">Receipt uploaded successfully!</div>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <button (click)="getReceipts()">Do you want to create google wallet pass?</button>
+    </mat-dialog-actions>
+  </ng-template>
+
+  <ng-template #walletDialog let-dialogRef="dialogRef">
+  <div class="wallet-dialog-content">
+    <div class="wallet-card">
+      <div class="flip-card" (click)="flip = !flip">
+        <div class="flip-card-inner" [class.flipped]="flip">
+          <!-- Front Side -->
+          <div class="flip-card-front" [ngStyle]="{'background-image': 'url(' + walletInfo.imageUrl + ')'}">
+            <div class="card-content">
+              <h3>{{ walletInfo.storeName }}</h3>
+              <p>{{ walletInfo.uploadTime | date: 'mediumDate' }}</p>
+              <h4>₹{{ walletInfo.totalAmount }}</h4>
+            </div>
+          </div>
+
+          <!-- Back Side -->
+          <div class="flip-card-back">
+            <div class="menu-card">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Item Name</th>
+                    <th>Price Per Unit</th>
+                    <th>Quantity</th>
+                    <th>Total Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of walletInfo.items">
+                    <td>{{ item.itemName }}</td>
+                    <td>₹{{ item.pricePerUnit }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>₹{{ item.totalPrice }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <a [href]="walletURL" class="my-2" target="_blank">Ask AI About This Receipt</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+  <!-- chat -->
+      <!-- <app-chat ></app-chat> -->
+
+</div>
+
+
+<div class="loader-overlay" *ngIf="isLoading">
+  <div class="google-loader">
+    <div class="dot red"></div>
+    <div class="dot blue"></div>
+    <div class="dot yellow"></div>
+    <div class="dot green"></div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="page-container">
+        <app-chat></app-chat>
+
+    <main class="main-content">
+        <router-outlet />
+    </main>
+    <footer class="footer" *ngIf="!isLoginPage">
+        <mat-icon [routerLink]="['/home']" title="home">home</mat-icon>
+        <mat-icon [routerLink]="['/receipt']" title="receipts">receipt</mat-icon>        
+        <!-- <mat-icon [routerLink]="['/shopping-list']" title="shopping list">list_alt</mat-icon> -->
+        <div class="add-div" (click)="fileInput.click()" title="upload a receipt">
+            <mat-icon>add</mat-icon>
+        </div>
+        <input type="file" #fileInput (change)="onFileSelected($event)" hidden />
+        <!-- <mat-icon [routerLink]="['/chat']" title="chat">chat</mat-icon> -->
+        <!-- <mat-icon [routerLink]="['/insights']">lightbulb</mat-icon> -->
+        <mat-icon [routerLink]="['/insights']">psychology</mat-icon>
+        <!-- <mat-icon [routerLink]="['/insights']">analytics</mat-icon> -->
+        <mat-icon [routerLink]="['/notification']" title="notifications">notifications</mat-icon>
+        <!-- <mat-icon title="profile">person</mat-icon> -->
+        
+    </footer>
+</div>

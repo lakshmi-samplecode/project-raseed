@@ -1,0 +1,67 @@
+.header {
+    height: 20vh;
+    align-content: center;
+    text-align: center;
+    .img-div{
+        width: 30vh;
+    }   
+}
+.title{
+    font-size: 24px;
+    font-weight: 600;
+    color:#406FC9
+}
+input{
+    font-size: 14px;
+}
+button{
+    border:none;
+    background: #406FC9;
+    color:white;
+    font-size: 14px;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    width: 100%;
+}
+button:hover{
+    background: #FBBC05;
+    color:white;
+}
+.card{
+    box-shadow: 0 -1px 3px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.1);
+    border:none;
+}
+.btn-container{
+    background:#EA4335;
+    border-radius: 5px;
+    height: 25px;
+    align-items: center;
+    color:white;
+    button{
+        background: transparent;
+        border:none;
+        color:white;
+    }
+}
+.savebtn{
+    border:none;
+    background: #1B69CD;
+    color:white;
+    font-size: 14px;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    width: 100%;
+}
+.savebtn:hover{
+    background: #538ad3;
+    color:white;
+}
+mat-icon{
+    cursor: pointer;
+    color:dimgray;
+}
+mat-icon:hover{
+    color:#1B69CD;
+}

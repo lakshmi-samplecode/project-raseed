@@ -1,0 +1,22 @@
+<h2>Your Receipts</h2>
+
+<ng-container *ngIf="receipts$ | async as receipts; else loading">
+  <div *ngIf="receipts.length > 0; else noReceipts">
+    <ul>
+      <li *ngFor="let receipt of receipts">
+        <h3>{{ receipt.storeName }} - {{ receipt.totalAmount | currency:'USD' }}</h3>
+        <p>Date: {{ receipt.uploadTime | date:'shortDate' }}</p>
+        <p>Items: {{ receipt.items.length }}</p>
+        <button (click)="viewReceiptDetails(receipt.id)">View Details</button>
+      </li>
+    </ul>
+  </div>
+</ng-container>
+
+<ng-template #noReceipts>
+  <p>No receipts found yet. Upload one to get started!</p>
+</ng-template>
+
+<ng-template #loading>
+  <p>Loading receipts...</p>
+</ng-template>

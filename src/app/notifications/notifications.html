@@ -1,0 +1,29 @@
+<div class="notification-container p-4">
+    <!-- <div class="header">
+        <img src="assets/Images/list2.png" class="img-div"/>
+    </div> -->
+    <!-- <div class="d-flex" style="justify-content: space-between;">
+        <div class="title">Notifications</div>
+        <div class="dropdown">
+            <select id="filter" [(ngModel)]="filterDate" class="form-select" style="width: 220px;">
+            <option value="all">All</option>
+            <option *ngFor="let date of availableDates" [value]="date">
+                {{ date === 'today' ? 'Today' : (date | date: 'mediumDate') }}
+            </option>
+            </select>
+        </div>
+    </div>  -->
+    <div class="d-flex" style="justify-content: space-between;">
+            <div class="title">Notifications</div>
+    </div>
+    <div class="notitication-card mt-3">    
+        <div *ngIf="reminderList.length === 0">No notifications for selected date.</div>
+        <div class="card-container" *ngFor="let data of reminderList">
+            <div class="card mt-2">
+                <div class="justify-content-between">
+                    <span>{{ data }}</span>            
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

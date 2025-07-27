@@ -1,0 +1,308 @@
+.header {
+    height: 40vh;
+    background-image: url(../../assets/Images/receipt-blue.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;   
+    background-position: center;
+    padding-left: 10vh;
+    padding-top: 5vh;
+    line-height: 1;
+    // background: linear-gradient(135deg, #7730F6, #6B30FA, #4F66FE, #2996FF, #2E96FE);
+    // align-content: center;
+    // height: 30vh;
+    // text-align: center;
+    .filter-bar{
+        select{
+            background: #498ADD;
+            border: none;
+            color: white;
+            font-size: 14px;
+            border-radius: 20px;
+            padding: 2px 10px;
+            width: 200px;
+        }
+        select:focus{
+            outline: none;
+        }
+        option{
+            cursor: pointer;
+        }
+    }
+    .total-expense{
+        color: white;
+        font-size: 50px;
+        font-weight: 700;
+    }
+    .subheading{
+        color: #ffffff;
+        font-style: italic;
+        font-size: 14px;
+    }
+}
+.spend-analysis {
+    flex: 1;
+    min-width: 300px;
+}
+
+.category-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.category-card {
+    flex: 0 0 calc(16.66% - 1rem); 
+    padding: 10px;
+    background: white;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    // width: 140px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: 0.2s ease;
+    justify-items: center;
+    .category-img{
+        width: 75px;
+        height: 75px;
+        align-content: center;
+        border-radius: 50%;
+        img{
+            width: 60%;
+        }
+    }
+    .grocery{
+        background: #cbe5cb;;
+    }
+    .food{
+        background: silver;
+    }
+    .fashion{
+        background: #bbbbf5;
+    }
+    .movie{
+        background: #8dced1;;
+    }
+    .cosmetics{
+        background: #fbc1c9;;
+    }
+    .electronics{
+        background: #ef9472;;
+    }
+    .category-percent{
+        font-weight: 700;
+        font-size: 26px;
+    }
+    .category-name{
+        font-size: 14px;
+    }
+}
+.category-card:hover {
+    // background-color: #cfd5ff94;
+    background-color: #b0d2fd77;
+}
+.category-card.active {
+    background-color: #498ADD;
+    color: white!important;
+}
+.receipts {
+    flex: 2;
+    min-width: 400px;
+}
+.filter-bar {
+    margin-bottom: 1rem;
+}
+.receipt-list {
+    display: flex;
+    flex-direction: column;
+    // gap: 1rem;
+}
+.receipt-card {
+    padding: 1rem;
+    background: white;
+    border-bottom: 0.5px solid #ddd;
+    border-left: 5px solid #1B69CD;
+    cursor: pointer;
+}
+.store-name {
+    font-weight: 600;
+    font-size: 16px;
+}
+.price {
+    font-size: 16px;
+    font-weight: 600;
+    float: inline-end;
+}
+.time {
+    font-size: 10px;
+    color: #555;
+}
+
+@media screen and (max-width: 1024px) {
+    .category-card {
+        flex: 0 0 calc(33.33% - 1rem); // 3 per row on tablets
+    }
+    .header {
+        height: 23vh;
+        padding-left: 5vh;
+        padding-top: 2vh;
+        line-height: 1;
+        .total-expense{
+            font-size: 46px;
+        }
+        .filter-bar{
+            select{
+                width: 150px;
+            }
+        }
+    }
+    .category-card {
+        .category-img{
+            width: 50px;
+            height: 50px;
+        }
+        .category-percent{
+            font-weight: 700;
+            font-size: 24px;
+        }
+        .category-name{
+            font-size: 12px;
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .category-card {
+        flex: 0 0 calc(33.33% - 1rem); // 2 per row on small devices
+    }
+    .header {
+        height: 23vh;
+        padding-left: 5vh;
+        padding-top: 2vh;
+        line-height: 1;
+        .total-expense{
+            font-size: 46px;
+        }
+        .filter-bar{
+            select{
+                width: 150px;
+            }
+        }
+    }
+    .category-card {
+        .category-img{
+            width: 50px;
+            height: 50px;
+        }
+        .category-percent{
+            font-weight: 700;
+            font-size: 24px;
+        }
+        .category-name{
+            font-size: 12px;
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .category-card {
+        flex: 0 0 100%; // stack on very small screens
+    }
+    .header {
+        height: 23vh;
+        padding-left: 5vh;
+        padding-top: 2vh;
+        line-height: 1;
+        .total-expense{
+            font-size: 46px;
+        }
+        .filter-bar{
+            select{
+                width: 150px;
+            }
+        }
+    }
+    .category-card {
+        .category-img{
+            width: 50px;
+            height: 50px;
+        }
+        .category-percent{
+            font-weight: 700;
+            font-size: 24px;
+        }
+        .category-name{
+            font-size: 12px;
+        }
+    }
+}
+::ng-deep .mat-dialog-container {
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  overflow: visible !important;
+}
+.menu-card{
+    justify-items: center;
+    cursor: pointer;
+    overflow: auto;
+    table {
+        border:1px solid lightgrey;
+        width: 100%;
+        border-collapse: collapse;
+        th, td {
+          padding: 5px;
+          text-align: left;
+          border-bottom: 1px solid #ccc;
+          font-size: 12px;
+        }
+        th{
+            background: #406FC9;
+            color:white;
+        }
+    }
+}
+     
+//
+.loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(37 35 35 / 90%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.google-loader {
+  display: flex;
+  gap: 12px;
+}
+
+.dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  animation: bounce 1.2s infinite ease-in-out;
+}
+
+.dot:nth-child(1) {
+    background: #4285F4; animation-delay: 0s;
+}
+.dot:nth-child(2) {
+    background: #EA4335; animation-delay: 0.15s;
+}
+.dot:nth-child(3) {
+    background: #FBBC05; animation-delay: 0.3s;
+}
+.dot:nth-child(4) {
+    background: #34A853; animation-delay: 0.45s;
+}
+
+@keyframes bounce {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1); }
+}

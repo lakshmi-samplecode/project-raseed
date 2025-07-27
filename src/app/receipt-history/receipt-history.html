@@ -1,0 +1,74 @@
+<div class="receipt-history">
+    <div class="header">
+        <div class="filter-bar pt-3">
+            <select id="month" [(ngModel)]="selectedMonth" (change)="filterReceipts()">
+                <option *ngFor="let month of months" [value]="month">{{ month }}</option>
+            </select>
+        </div>
+        <div class="total-expense">
+            ₹{{ totalExpense }}
+        </div>
+        <div class="subheading mt-2">monthly cash flow</div>
+    </div>
+    <div class="history p-4 pt-3">
+        <div class="spend-analysis">
+            <h5>Spend Analysis</h5>
+            <div class="category-cards mt-3">
+                <div *ngFor="let category of categories" class="category-card"
+                    [class.active]="selectedCategory === category.name"
+                    (click)="filterByCategory(category.name)">
+                        <div class="category-img" [ngClass]="category.imgsrc">
+                            <img src="assets/Images/{{category.imgsrc}}.png" />
+                        </div>
+                        <div class="category-percent">{{ category.percent }}%</div>
+                        <div class="category-name">{{ category.name }}</div>
+                </div>
+            </div>
+        </div>
+        <div class="receipts py-3">
+            <h5>Transaction</h5>
+            <div class="receipt-list mt-3">
+                <div *ngFor="let receipt of filteredReceipts" class="receipt-card">
+                    <div class="row" style="align-items: center;" (click)="openDialog(receipt.items)">
+                        <div class="col-8">
+                            <div class="store-name">{{ receipt.storeName }}</div>
+                            <div class="time">{{ receipt.uploadTime | date: 'MMM d, y, h:mm a' }}</div>
+                        </div>
+                        <div class="col-4">
+                            <button style="border: none;background: transparent;float: inline-end;"><mat-icon style="color:grey">navigate_next</mat-icon></button>
+                            <div class="price">Total Spent: ₹{{ receipt.totalAmount }}</div>
+                        </div>
+                    </div>  
+                    <ng-template #menuDialog let-dialogRef="dialogRef">
+                        <mat-dialog-content>
+                            <div class="menu-card">
+                                <table>
+                                    <tr>
+                                        <th>Item Name</th>
+                                        <th>Price Per Unit</th>
+                                        <th>Quantity</th>
+                                        <th>Total Price</th>
+                                    </tr>
+                                    <tr *ngFor="let item of selectedReceiptItems" class="item">
+                                        <td>{{ item.itemName }}</td>
+                                        <td>₹{{ item.pricePerUnit }} </td>
+                                        <td>₹{{ item.quantity }} </td>
+                                        <td>₹{{ item.totalPrice }} </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </mat-dialog-content>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="loader-overlay" *ngIf="isLoading">
+  <div class="google-loader">
+    <div class="dot red"></div>
+    <div class="dot blue"></div>
+    <div class="dot yellow"></div>
+    <div class="dot green"></div>
+  </div>
+</div>

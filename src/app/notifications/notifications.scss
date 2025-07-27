@@ -1,0 +1,29 @@
+.header {
+    height: 20vh;
+    align-content: center;
+    text-align: center;
+    .img-div{
+        width: 30vh;
+    }   
+}
+.title{
+    font-size: 24px;
+    font-weight: 600;
+    color:#406FC9
+}
+.notitication-card {
+    // border:1px solid lightgrey;
+    // border-radius: 10px;
+}
+select{
+    background: #406FC9;
+    color:white;
+}
+select:focus{
+    outline: none;
+}
+.card{
+    padding: 10px;
+    box-shadow: 0 -1px 3px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.1);
+    border:none;
+}

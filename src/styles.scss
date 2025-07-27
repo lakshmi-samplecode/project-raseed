@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    margin: 0;
+}
+.custom-toast {
+  background-color: #fefefe;
+  color: #333!important;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  pointer-events: all;
+}
+
+.toast-buy {
+  border-left: 4px solid #406FC9;
+}
